@@ -29,13 +29,17 @@ $("ul").on("click", "span", function(event){
 $("input[type='text']").keypress(function(event){
 	if(event.which === 13){
 		//grab new todo text from input
+		var picktime = $("#close").val();
+		$("#close").val("");
 		var todoText = $(this).val();
 		$(this).val("");
 		//create a new li and add to ul
-		$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
+		$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + picktime.italics().fontcolor("#8599ad").small()+ "   " + todoText + "</li>");
 	}
 })
 
 $("#toggleplus").click(function(){
-	$("input[type='text']").fadeToggle();
+	$("#calender").fadeToggle();
 })
+
+jQuery("#close").datetimepicker();
